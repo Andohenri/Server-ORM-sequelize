@@ -80,7 +80,7 @@ exports.getArticles = async (req, res) => {
       const articles = await Article.findAll({
          include: [
             {model: User, as: 'author', attributes: ['id', 'username', 'imageProfile']},
-            {model: Comment, as: 'comments', include: [{model: User, as: 'user'}]}
+            {model: Comment, as: 'comments', include: [{model: User, as: 'user', attributes: ['id', 'username', 'imageProfile']}]}
          ],
          order: [['createdAt', 'DESC']]
       })

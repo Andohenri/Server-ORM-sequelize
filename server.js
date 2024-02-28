@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const userRoutes = require('./routes/userRoutes')
 const uploadRoutes = require('./routes/uploadRoutes')
 const articleRoutes = require('./routes/articleRoutes')
+const commentRoutes = require('./routes/commentRoutes')
 
 const server = express()
 const PORT = process.env.SERVER_PORT
@@ -19,6 +20,7 @@ server.use(cookieParser())
 //routes
 server.use('/api/users', userRoutes)
 server.use('/api/articles', articleRoutes)
+server.use('/api/comment', commentRoutes)
 
 //uploads images
 server.use('/api/uploads', uploadRoutes)
